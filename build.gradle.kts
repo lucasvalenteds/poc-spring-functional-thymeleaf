@@ -16,6 +16,11 @@ dependencies {
 
     implementation("io.projectreactor", "reactor-core", "3.4.0")
     implementation("io.projectreactor.netty", "reactor-netty", "1.0.1")
+
+    implementation("org.springframework", "spring-context", "5.3.1")
+    implementation("org.springframework", "spring-webflux", "5.3.1")
+    implementation("org.thymeleaf", "thymeleaf", "3.0.11.RELEASE")
+    implementation("org.thymeleaf", "thymeleaf-spring5", "3.0.11.RELEASE")
 }
 
 configure<JavaPluginConvention> {
