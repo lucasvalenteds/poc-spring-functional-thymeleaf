@@ -73,7 +73,6 @@ public class AppConfiguration {
                 .build()
         );
 
-        context.registerBean(AppHandler.class);
         context.registerBean(AppRouter.class);
 
         context.registerBean(
