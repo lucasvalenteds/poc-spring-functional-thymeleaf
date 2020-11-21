@@ -54,7 +54,7 @@ public class AppConfiguration {
             SpringWebFluxTemplateEngine templateEngine = new SpringWebFluxTemplateEngine();
 
             ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-            templateResolver.setPrefix("/templates/");
+            templateResolver.setPrefix(environment.getRequiredProperty("templates.path", String.class));
             templateResolver.setSuffix(".html");
 
             templateEngine.setTemplateResolver(templateResolver);
