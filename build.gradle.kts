@@ -10,21 +10,21 @@ repositories {
 }
 
 dependencies {
-    implementation("org.apache.logging.log4j", "log4j-api", "2.14.0")
-    implementation("org.apache.logging.log4j", "log4j-core", "2.14.0")
-    implementation("org.slf4j", "slf4j-simple", "2.0.0-alpha1")
+    implementation("org.apache.logging.log4j", "log4j-api", properties["version.log4j"].toString())
+    implementation("org.apache.logging.log4j", "log4j-core", properties["version.log4j"].toString())
+    implementation("org.slf4j", "slf4j-simple", properties["version.slf4j"].toString())
 
-    implementation("io.projectreactor", "reactor-core", "3.4.0")
-    implementation("io.projectreactor.netty", "reactor-netty", "1.0.1")
+    implementation("io.projectreactor", "reactor-core", properties["version.reactor"].toString())
+    implementation("io.projectreactor.netty", "reactor-netty", properties["version.netty"].toString())
 
-    implementation("org.springframework", "spring-context", "5.3.1")
-    implementation("org.springframework", "spring-webflux", "5.3.1")
-    testImplementation("org.springframework", "spring-test", "5.3.1")
-    testImplementation("org.hamcrest", "hamcrest-core", "1.3")
-    implementation("org.thymeleaf", "thymeleaf", "3.0.11.RELEASE")
-    implementation("org.thymeleaf", "thymeleaf-spring5", "3.0.11.RELEASE")
+    implementation("org.springframework", "spring-context", properties["version.spring"].toString())
+    implementation("org.springframework", "spring-webflux", properties["version.spring"].toString())
+    testImplementation("org.springframework", "spring-test", properties["version.spring"].toString())
+    testImplementation("org.hamcrest", "hamcrest-core", properties["version.hamcrest"].toString())
+    implementation("org.thymeleaf", "thymeleaf", properties["version.thymeleaf"].toString())
+    implementation("org.thymeleaf", "thymeleaf-spring5", properties["version.thymeleaf"].toString())
 
-    testImplementation("org.junit.jupiter", "junit-jupiter", "5.7.0")
+    testImplementation("org.junit.jupiter", "junit-jupiter", properties["version.junit"].toString())
 }
 
 configure<JavaPluginConvention> {
