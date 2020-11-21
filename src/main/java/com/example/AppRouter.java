@@ -14,8 +14,8 @@ public final class AppRouter {
 
     public RouterFunction<ServerResponse> create() {
         return RouterFunctions.route()
-            .GET("/", handler::handleIndex)
-            .GET("*", handler::handleNotFound)
+            .GET("/", request -> handler.handleIndex())
+            .GET("*", request -> handler.handleNotFound())
             .build();
     }
 }
