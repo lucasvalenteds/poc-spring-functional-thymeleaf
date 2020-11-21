@@ -8,7 +8,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 class MainTest {
 
     private static final WebTestClient client = WebTestClient
-        .bindToApplicationContext(AppConfiguration.createApplicationContext())
+        .bindToApplicationContext(AppConfiguration.createApplicationContext(AppConfiguration.environment()))
         .build();
 
     @Test
