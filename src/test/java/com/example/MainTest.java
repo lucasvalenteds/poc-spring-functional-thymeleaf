@@ -26,7 +26,6 @@ class MainTest {
         client.get().uri("/about")
             .exchange()
             .expectStatus().isNotFound()
-            .expectHeader().contentType(MediaType.TEXT_HTML)
             .expectBody().isEmpty();
     }
 }

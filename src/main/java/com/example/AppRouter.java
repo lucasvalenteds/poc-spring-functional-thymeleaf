@@ -1,6 +1,5 @@
 package com.example;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
@@ -19,11 +18,7 @@ public final class AppRouter {
                         Map.entry("headline", "Hello World!")
                     ))
             )
-            .GET("*", request ->
-                ServerResponse.notFound()
-                    .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_HTML_VALUE)
-                    .build()
-            )
+            .GET("*", request -> ServerResponse.notFound().build())
             .build();
     }
 }
