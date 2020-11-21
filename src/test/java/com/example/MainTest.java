@@ -22,7 +22,7 @@ class MainTest {
     }
 
     @Test
-    void testRenderingAboutPage() {
+    void testRenderingNotFoundPage() {
         client.get().uri("/about")
             .exchange()
             .expectStatus().isNotFound()

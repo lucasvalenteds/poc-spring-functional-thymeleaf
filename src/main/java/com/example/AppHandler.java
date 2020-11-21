@@ -18,7 +18,7 @@ public final class AppHandler {
             ));
     }
 
-    public Mono<ServerResponse> handleAbout(ServerRequest request) {
+    public Mono<ServerResponse> handleNotFound(ServerRequest request) {
         return ServerResponse.notFound()
             .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_HTML_VALUE)
             .build();
