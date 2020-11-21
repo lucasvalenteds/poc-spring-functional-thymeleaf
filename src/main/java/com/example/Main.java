@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class Main {
 
-    private static final Logger logger = LogManager.getLogger(Main.class);
+    private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
         ConfigurableEnvironment environment = AppConfiguration.environment();
@@ -20,7 +20,7 @@ public class Main {
 
         httpServer.bindUntilJavaShutdown(
             Duration.ofSeconds(5),
-            server -> logger.info("Server running at http://localhost:{}", server.port())
+            server -> LOGGER.info("Server running at http://localhost:{}", server.port())
         );
     }
 }
