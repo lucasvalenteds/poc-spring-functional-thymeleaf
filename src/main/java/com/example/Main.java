@@ -19,7 +19,7 @@ public class Main {
         HttpServer httpServer = AppConfiguration.createHttpServer(context);
 
         httpServer.bindUntilJavaShutdown(
-            Duration.ofMillis(1000),
+            Duration.ofSeconds(5),
             server -> logger.info("Server running at http://localhost:{}", server.port())
         );
     }
