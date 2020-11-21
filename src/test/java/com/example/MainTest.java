@@ -12,13 +12,25 @@ class MainTest {
         .build();
 
     @Test
-    void testRenderingIndexPage() {
+    void testRenderingIndexPageDefaultHeadline() {
         client.get().uri("/")
             .exchange()
             .expectStatus().isOk()
             .expectHeader().contentType(MediaType.TEXT_HTML)
             .expectBody(String.class)
             .value(CoreMatchers.containsString("<h1>Hello World!</h1>"));
+    }
+
+    @Test
+    void testRenderingIndexPageCustomHeadline() {
+        String phrase = "Breaking news!";
+
+        client.get().uri(uri -> uri.path("/").queryParam("phrase", phrase).build())
+            .exchange()
+            .expectStatus().isOk()
+            .expectHeader().contentType(MediaType.TEXT_HTML)
+            .expectBody(String.class)
+            .value(CoreMatchers.containsString("<h1>" + phrase + "</h1>"));
     }
 
     @Test
