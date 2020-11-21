@@ -1,5 +1,6 @@
 package com.example;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -18,6 +19,8 @@ public final class AppHandler {
     }
 
     public Mono<ServerResponse> handleAbout(ServerRequest request) {
-        return ServerResponse.notFound().build();
+        return ServerResponse.notFound()
+            .header(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_HTML_VALUE)
+            .build();
     }
 }

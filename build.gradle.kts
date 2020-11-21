@@ -1,3 +1,5 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     java
     application
@@ -17,8 +19,12 @@ dependencies {
 
     implementation("org.springframework", "spring-context", "5.3.1")
     implementation("org.springframework", "spring-webflux", "5.3.1")
+    testImplementation("org.springframework", "spring-test", "5.3.1")
+    testImplementation("org.hamcrest", "hamcrest-core", "1.3")
     implementation("org.thymeleaf", "thymeleaf", "3.0.11.RELEASE")
     implementation("org.thymeleaf", "thymeleaf-spring5", "3.0.11.RELEASE")
+
+    testImplementation("org.junit.jupiter", "junit-jupiter", "5.7.0")
 }
 
 configure<JavaPluginConvention> {
@@ -28,4 +34,11 @@ configure<JavaPluginConvention> {
 
 configure<ApplicationPluginConvention> {
     mainClassName = "com.example.Main"
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
+    testLogging {
+        events = setOf(TestLogEvent.PASSED, TestLogEvent.FAILED, TestLogEvent.SKIPPED)
+    }
 }

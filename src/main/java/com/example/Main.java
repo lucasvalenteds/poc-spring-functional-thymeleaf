@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = AppConfiguration.createApplicationContext();
 
-        HttpServer httpServer = context.getBean(HttpServer.class);
+        HttpServer httpServer = AppConfiguration.createHttpServer(context);
 
         httpServer.port(8081).bindUntilJavaShutdown(
             Duration.ofMillis(1000),
